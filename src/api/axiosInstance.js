@@ -1,9 +1,13 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://localhost:5001/api"
+  baseURL: import.meta.env.VITE_BASE_URL + "/api", // automatically reads your env variable
+  headers: {
+    "Content-Type": "application/json"
+  }
 });
 
+// Add JWT token automatically
 axiosInstance.interceptors.request.use(config => {
   const token = localStorage.getItem("token");
   if (token) {
