@@ -4,6 +4,7 @@ import Home from "./pages/public/Home";
 import Dashboard from "./pages/dashboard/Dashboard";
 import PageList from "./pages/pages/PageList";
 import PageCreate from "./pages/pages/PageCreate";
+import PageEdit from "./pages/pages/PageEdit";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 
@@ -40,6 +41,15 @@ export default function App() {
           element={
             <ProtectedRoute>
               <PageCreate />
+            </ProtectedRoute>
+          }
+        />
+
+          <Route
+          path="/admin/pages/edit/:id"
+          element={
+            <ProtectedRoute>
+              <PageEdit />
             </ProtectedRoute>
           }
         />
